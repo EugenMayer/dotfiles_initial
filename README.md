@@ -10,6 +10,8 @@ This part is public, it taks a vanialla installation and makes it ready for auto
 
 ```
 pamac install homemaker-git
+# or alternatively without AUR for now
+sudo curl -O /usr/local/bin/homemaker https://foosoft.net/projects/homemaker/dl/homemaker_linux_amd64.tar.gz && chmod +x /usr/local/bin/homemaker
 
 git clone https://github.com/eugenmayer/dotfiles_initial
 cd initial_dotfiles
