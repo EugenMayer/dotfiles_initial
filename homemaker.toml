@@ -38,8 +38,8 @@
     ]
     cmds = [
         ["mkdir","-p","${HM_DEST}/.config/rslsync/.sync"],
-        ["systemctl","--user","enable","rslsync],
-        ["systemctl","--user","restart","rslsync],
+        ["systemctl","--user","enable","rslsync"],
+        ["systemctl","--user","restart","rslsync"],
     ]
 
 [tasks.kernel]
