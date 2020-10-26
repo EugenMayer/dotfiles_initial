@@ -9,8 +9,9 @@ This part is public, it taks a vanialla installation and makes it ready for auto
 - The i3-session is run using `gnome-flashback` on top of a gnome-session. 
 
 ```
-git clone https://github.com/eugenmayer/intial_dotfiles
-cd initial_dotfiles
 pamac install homemaker-git
+
+git clone https://github.com/eugenmayer/dotfiles_initial
+cd initial_dotfiles
 homemaker homemaker.toml ./ 
 ```
