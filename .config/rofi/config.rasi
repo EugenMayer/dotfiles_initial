@@ -1,0 +1,7 @@
+configuration {
+	theme: "/usr/share/rofi/themes/glue_pro_blue.rasi";
+        modi: "window,drun,combi";
+        combi-modi: "window,drun";
+        show-icons: true;
+        icon-theme: "Papirus";
+}

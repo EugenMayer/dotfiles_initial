@@ -1,0 +1,53 @@
+[tasks.default]
+    deps = ["initialsetup"]
+
+[tasks.initialsetup]
+    deps = ["initialpkgs", "intialconfig"]
+
+[tasks.initialpkgs]
+     cmds = [
+        ["@install", "yay"],
+        ["@install_aur", "rslsync"],
+        ["@install_aur", "gnome-flashback"],
+        ["@install_aur", "i3-gaps"],
+        ["@install_aur", "i3-gnome"],
+        ["@install_aur", "i3exit"],
+        ["@install_aur", "i3-resurrect"],
+        ["@install_aur", "rofi"],
+        ["@install_aur", "rofi-bluetooth-git"],
+        ["@install_aur", "seahorse"],
+        ["@install_aur", "terminator"],
+        ["@install_aur", "network-manager-applet"],
+        ["@install_aur", "xorg-xev"],
+        ["@install_aur", "xcape"],
+    ]
+
+[tasks.initialconfig]
+    deps = ["resilioconfig"]
+    links = [
+        [".config/i3/config"],
+        [".config/rofi/config.rasi"],
+        [".xprofile"],
+    ]
+    cmds = [
+        ["dconf", "write", "/org/gnome/gnome-flashback/desktop","false"],
+        ["dconf", "write", "/org/gnome/gnome-flashback/root-background","true"]
+    ]
+
+[tasks.resilioconfig]
+    rejects = [["test", "-d", ".config/rslsync"]]    
+    cmds = [
+        ["mkdir","-p","${HM_DEST}/.config/rslsync/.sync"],
+    ]
+    templates = [
+        [".config/rslsync/rslsync.conf"]
+    ]
+
+[macros.install]
+    prefix = ["sudo", "pacman", "-S", "--needed", "--noconfirm"] 
+
+[macros.install_aur]
+    prefix = ["yay", "-S", "--needed", "--answerclean","No","--answerdiff","N","--answerupgrade","No"]    
+
+[macros.remove]
+    prefix = ["yay", "-R","--noconfirm"]
