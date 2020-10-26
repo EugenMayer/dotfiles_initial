@@ -7,6 +7,7 @@ all my configuration in stage 2.
 This part is public, it taks a vanialla installation and makes it ready for auto-provisioning.
 
 - The i3-session is run using `gnome-flashback` on top of a gnome-session. 
+- it will deploy a function i3 configuration to start with
 
 ```
 pamac install homemaker-git
@@ -14,6 +15,6 @@ pamac install homemaker-git
 sudo curl -O /usr/local/bin/homemaker https://foosoft.net/projects/homemaker/dl/homemaker_linux_amd64.tar.gz && chmod +x /usr/local/bin/homemaker
 
 git clone https://github.com/eugenmayer/dotfiles_initial
-cd initial_dotfiles
+cd dotfiles_initial
 homemaker homemaker.toml ./ 
 ```

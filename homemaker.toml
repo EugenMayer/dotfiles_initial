@@ -1,5 +1,5 @@
 [tasks.default]
-    deps = ["packages", "intialconfig"]
+    deps = ["packages", "intialconfig", "kernel"]
 
 [tasks.packages]
      cmds = [
@@ -42,6 +42,11 @@
         ["systemctl","--user","restart","rslsync],
     ]
 
+[tasks.kernel]
+    cmds = [
+        ["sudo","mhwd-kernel", "-i", "linux59"]
+    ]
+    
 [macros.install]
     prefix = ["sudo", "pacman", "-S", "--needed", "--noconfirm"] 
 
