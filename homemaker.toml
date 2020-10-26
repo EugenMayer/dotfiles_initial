@@ -1,10 +1,7 @@
 [tasks.default]
-    deps = ["initialsetup"]
+    deps = ["packages", "intialconfig"]
 
-[tasks.initialsetup]
-    deps = ["initialpkgs", "intialconfig"]
-
-[tasks.initialpkgs]
+[tasks.packages]
      cmds = [
         ["@install", "yay"],
         ["@install_aur", "rslsync"],
@@ -23,7 +20,7 @@
     ]
 
 [tasks.initialconfig]
-    deps = ["resilioconfig"]
+    deps = ["resilio"]
     links = [
         [".config/i3/config"],
         [".config/rofi/config.rasi"],
@@ -34,13 +31,15 @@
         ["dconf", "write", "/org/gnome/gnome-flashback/root-background","true"]
     ]
 
-[tasks.resilioconfig]
+[tasks.resilio]
     rejects = [["test", "-d", ".config/rslsync"]]    
-    cmds = [
-        ["mkdir","-p","${HM_DEST}/.config/rslsync/.sync"],
-    ]
     templates = [
         [".config/rslsync/rslsync.conf"]
+    ]
+    cmds = [
+        ["mkdir","-p","${HM_DEST}/.config/rslsync/.sync"],
+        ["systemctl","--user","enable","rslsync],
+        ["systemctl","--user","restart","rslsync],
     ]
 
 [macros.install]
