@@ -11,6 +11,32 @@ This whole lot is only for configuration handling, setting up developmen environ
 - The i3-session is run using `gnome-flashback` on top of a gnome-session. 
 - it will deploy a function i3 configuration to start with
 
+
+## Installation
+
+### Manajro Gnome
+
+- Install it using the usual installing
+- on first boot do a complete system update since usually the installer of Gnome is far behind the latest stable
+```
+# select a new mirror, since the first one is broken and leads to a broken upgrade
+# use just pacman-mirror to list all the mirrors
+sudo pacman-mirror -f 2
+# now upgrade
+sudo pacman -Suy
+sudo update-grub
+```
+
+- be sure, before the reboot, that you still have a kernel installed. This tends to happend during the update above. Use
+```
+# check the installed kernel
+mhwd-kernel -li
+# install a kernel
+sudo mhwd-kernel -i linnux59
+```
+- reboot once
+
+### Stage1 provisioning
 ```
 pamac install homemaker-git
 # or alternatively without AUR for now
