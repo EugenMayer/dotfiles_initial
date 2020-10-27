@@ -37,7 +37,9 @@ sudo mhwd-kernel -i linnux59
 - reboot once
 
 ### Stage1 provisioning
+
 ```
+# be sure to enable AUR repos before you can install this
 pamac install homemaker-git
 # or alternatively without AUR for now
 sudo curl -O /usr/local/bin/homemaker https://foosoft.net/projects/homemaker/dl/homemaker_linux_amd64.tar.gz && chmod +x /usr/local/bin/homemaker
