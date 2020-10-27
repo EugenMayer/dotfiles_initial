@@ -8,6 +8,7 @@
         ["@install_aur", "gnome-flashback"],
         ["@install_aur", "i3-gaps"],
         ["@install_aur", "i3-gnome"],
+        ["@install_aur", "i3status"],
         ["@install_aur", "i3exit"],
         ["@install_aur", "i3-resurrect"],
         ["@install_aur", "rofi"],
