@@ -23,8 +23,15 @@
         ["@remove", "apache"],
     ]
 
+
+[tasks.packages_extra]
+     cmds = [
+        ["@install_aur", "signal-desktop"],
+        ["@install_aur", "enpass-bin"],
+    ]
+
+
 [tasks.initialconfig]
-    deps = ["resilio"]
     links = [
         [".config/i3/config"],
         [".config/rofi/config.rasi"]
