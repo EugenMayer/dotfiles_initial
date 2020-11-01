@@ -41,12 +41,17 @@ sudo mhwd-kernel -i linux59
 ### Stage1 provisioning
 
 ```
-# PRECONDITION: enable AUR repos in the pamac-gtk gui
+# PRECONDITION: enable AUR repos in the pamac-gtk gui or using those commands below
+sudo echo "EnableAUR" >> /etc/pamac.conf
+sudo echo "KeepBuiltPkgs" >> /etc/pamac.conf
+sudo echo "CheckAURUpdates" >> /etc/pamac.conf
+sudo echo "CheckAURVCSUpdates" >> /etc/pamac.conf
+
 pamac install homemaker-git
 # OR alternatively without AUR for now
 sudo curl -O /usr/local/bin/homemaker https://foosoft.net/projects/homemaker/dl/homemaker_linux_amd64.tar.gz && chmod +x /usr/local/bin/homemaker
 
 git clone https://github.com/eugenmayer/dotfiles_initial
 cd dotfiles_initial
-homemaker homemaker.toml ./ 
+homemaker homemaker.toml ./
 ```
