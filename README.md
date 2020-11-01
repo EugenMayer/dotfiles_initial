@@ -42,11 +42,13 @@ sudo mhwd-kernel -i linux59
 
 ```
 # PRECONDITION: enable AUR repos in the pamac-gtk gui or using those commands below
-sudo echo "EnableAUR" >> /etc/pamac.conf
-sudo echo "KeepBuiltPkgs" >> /etc/pamac.conf
-sudo echo "CheckAURUpdates" >> /etc/pamac.conf
-sudo echo "CheckAURVCSUpdates" >> /etc/pamac.conf
+sudo -s
+echo "EnableAUR" >> /etc/pamac.conf
+echo "KeepBuiltPkgs" >> /etc/pamac.conf
+echo "CheckAURUpdates" >> /etc/pamac.conf
+echo "CheckAURVCSUpdates" >> /etc/pamac.conf
 pamac update
+exit
 
 pamac install homemaker-git
 # OR alternatively without AUR for now
