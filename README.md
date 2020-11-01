@@ -46,6 +46,7 @@ sudo echo "EnableAUR" >> /etc/pamac.conf
 sudo echo "KeepBuiltPkgs" >> /etc/pamac.conf
 sudo echo "CheckAURUpdates" >> /etc/pamac.conf
 sudo echo "CheckAURVCSUpdates" >> /etc/pamac.conf
+pamac update
 
 pamac install homemaker-git
 # OR alternatively without AUR for now
