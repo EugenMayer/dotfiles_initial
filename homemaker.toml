@@ -19,6 +19,7 @@
         ["@install_aur", "xorg-xev"],
         ["@install_aur", "xcape"],
         ["@remove", "gnome-user-share"],
+        ["@remove", "mod_dnssd"],
         ["@remove", "apache"],
     ]
 
@@ -26,8 +27,7 @@
     deps = ["resilio"]
     links = [
         [".config/i3/config"],
-        [".config/rofi/config.rasi"],
-        [".xprofile"],
+        [".config/rofi/config.rasi"]
     ]
     cmds = [
         ["dconf", "write", "/org/gnome/gnome-flashback/desktop","false"],
