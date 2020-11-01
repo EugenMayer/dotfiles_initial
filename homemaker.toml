@@ -4,7 +4,6 @@
 [tasks.packages]
      cmds = [
         ["@install", "yay"],
-        ["@install_aur", "rslsync"],
         ["@install_aur", "gnome-flashback"],
         ["@install_aur", "i3-gaps"],
         ["@install_aur", "i3-gnome"],
@@ -30,13 +29,13 @@
         ["@install_aur", "enpass-bin"],
     ]
 
-
-[tasks.initialconfig]
+[tasks.initialconfig]   
     links = [
         [".config/i3/config"],
         [".config/rofi/config.rasi"]
     ]
     cmds = [
+        ["@install_aur", "rslsync"],
         ["dconf", "write", "/org/gnome/gnome-flashback/desktop","false"],
         ["dconf", "write", "/org/gnome/gnome-flashback/root-background","true"]
     ]
