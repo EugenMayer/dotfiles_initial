@@ -32,6 +32,7 @@
 [tasks.initialconfig]   
     links = [
         [".config/i3/config"],
+        [".config/i3/i3status/i3status.conf"],
         [".config/rofi/config.rasi"]
     ]
     cmds = [
