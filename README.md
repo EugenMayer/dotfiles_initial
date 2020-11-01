@@ -55,4 +55,8 @@ sudo curl -O /usr/local/bin/homemaker https://foosoft.net/projects/homemaker/dl/
 git clone https://github.com/eugenmayer/dotfiles_initial
 cd dotfiles_initial
 homemaker homemaker.toml ./
+# if you need/like resilio sync
+homemaker --task resilio homemaker.toml ./
+# extra packagaes for the early stage
+homemaker --task packagaes_extra homemaker.toml ./
 ```
