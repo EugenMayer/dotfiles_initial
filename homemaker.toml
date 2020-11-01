@@ -36,6 +36,7 @@
     ]
     cmds = [
         ["@install_aur", "rslsync"],
+        ["mkdir","-p", "~/Sync/downloads"],
         ["dconf", "write", "/org/gnome/gnome-flashback/desktop","false"],
         ["dconf", "write", "/org/gnome/gnome-flashback/root-background","true"]
     ]

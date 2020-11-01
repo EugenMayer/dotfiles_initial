@@ -15,7 +15,7 @@ font pango:DejaVu Sans Mono 10
 
 ##### GENERAL AUTOSTART
 # load our x11 keyboard configuration, if it exists
-exec --no-startup-id [ -f $HOME ] && $HOME/.xprofile
+#exec --no-startup-id [ -f $HOME ] && $HOME/.xprofile
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -66,7 +66,6 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Ctrl+space exec --no-startup-id "rofi -show combi"
 bindsym $mod+space exec --no-startup-id "rofi -show combi"
 
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
@@ -90,10 +89,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -109,6 +105,9 @@ bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -197,8 +196,6 @@ for_window [class="VirtualBox"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="shadowsocks-qt5"] floating enable
 for_window [class="Catfish"] floating enable
-for_window [class="Xfce4-appfinder"] floating enable
-
 
 #===power manager===
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -227,6 +224,9 @@ bindsym $mod+Shift+e mode "$mode_system"
 # go to latest app needed focus like having a notification
 bindsym $mod+x [urgent=latest] focus
 
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
+
 #=== workspace managerment
 set $mode_workspace System (l)oad (s)save. Profiles: (b)rowse, (d)eveloper, (e)editor, (c)chat, (m)isc, (p)rivate . End with (Esc)ape / (Enter)
 mode "$mode_workspace" {
@@ -253,3 +253,17 @@ bindsym $mod+Shift+a mode "$mode_workspace"
 #bindsym XF86AudioRaiseVolume exec ponymix increase 5
 #bindsym XF86AudioLowerVolume exec ponymix decrease 5
 #bindsym XF86AudioMute exec ponymix toggle
+
+##### Theme
+
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #DB5B5B
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+hide_edge_borders       none
