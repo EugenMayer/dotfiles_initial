@@ -19,11 +19,11 @@ This whole lot is only for configuration handling, setting up developmen environ
 - Install it using the usual installing
 - on first boot do a complete system update since usually the installer of Gnome is far behind the latest stable
 ```
-# select a new mirror, since the first one is broken and leads to a broken upgrade
-# use just pacman-mirror to list all the mirrors
-sudo pacman-mirror -f 2
-# now upgrade
-sudo pacman -Suy
+# Update and select a new german mirrors since the included onces are broken
+# use just pacman-mirrors
+sudo pacman-mirrors -c Germany
+# now upgrade - remove --noconfirm for interactive .. but for a fresh system that does not really make any sense
+sudo pacman -Suy --noconfirm
 sudo update-grub
 ```
 
@@ -31,17 +31,19 @@ sudo update-grub
 ```
 # check the installed kernel
 mhwd-kernel -li
-# install a kernel
-sudo mhwd-kernel -i linnux59
+
+# install a kernel, might only be possible after a reboot ... otherwise "no target"
+# TODO: out of any reason this does not work "not target"
+sudo mhwd-kernel -i linux59
 ```
 - reboot once
 
 ### Stage1 provisioning
 
 ```
-# be sure to enable AUR repos before you can install this
+# PRECONDITION: enable AUR repos in the pamac-gtk gui
 pamac install homemaker-git
-# or alternatively without AUR for now
+# OR alternatively without AUR for now
 sudo curl -O /usr/local/bin/homemaker https://foosoft.net/projects/homemaker/dl/homemaker_linux_amd64.tar.gz && chmod +x /usr/local/bin/homemaker
 
 git clone https://github.com/eugenmayer/dotfiles_initial
