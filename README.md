@@ -38,6 +38,7 @@ mhwd-kernel -li
 # we should downgrade / upgrade only to 5.4, not higher. Otherwise bluetooth will not work properly 
 # - headset cannot be paried / are not shown as audio devices
 # - paired devices cannot be reconnected after a reboot
+# - login screen does not show up with linux59 - we would need to alt+ctrl+f2 then alt+ctrl+f1 to fix it. linux54 just works
 sudo mhwd-kernel -i linux54
 ```
 - reboot once
