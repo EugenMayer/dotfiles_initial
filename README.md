@@ -34,7 +34,11 @@ mhwd-kernel -li
 
 # install a kernel, might only be possible after a reboot ... otherwise "no target"
 # TODO: out of any reason this does not work "not target"
-sudo mhwd-kernel -i linux59
+
+# we should downgrade / upgrade only to 5.4, not higher. Otherwise bluetooth will not work properly 
+# - headset cannot be paried / are not shown as audio devices
+# - paired devices cannot be reconnected after a reboot
+sudo mhwd-kernel -i linux54
 ```
 - reboot once
 
